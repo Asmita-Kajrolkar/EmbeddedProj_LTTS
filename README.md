@@ -7,4 +7,6 @@
 |  |![11](https://user-images.githubusercontent.com/80444408/116185379-1c080d00-a73f-11eb-8dcc-f33484bee799.PNG)|
 
 # CI and Code Quality
-
+|Build|Cpp Check | Codacy|
+|-----|---------|-------|
+|  [![Cppcheck](https://github.com/Asmita-Kajrolkar/EmbeddedProj_LTTS/actions/workflows/CodeQulaity.yml/badge.svg)](https://github.com/Asmita-Kajrolkar/EmbeddedProj_LTTS/actions/workflows/CodeQulaity.yml)  | [![Compile-Linux](https://github.com/Asmita-Kajrolkar/EmbeddedProj_LTTS/actions/workflows/Compile.yml/badge.svg)](https://github.com/Asmita-Kajrolkar/EmbeddedProj_LTTS/actions/workflows/Compile.yml)        |        |
