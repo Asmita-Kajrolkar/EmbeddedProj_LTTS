@@ -34,7 +34,7 @@ void InitializePeripherals(void)
     SetHtrSensorPin();
 }
 
-uint8_t StatusOfLedActuator(void)
+uint8_t StatusLedActuator(void)
 {   
     uint8_t FLAG=0;
     InitializePeripherals();/* Initialize Peripherals */
