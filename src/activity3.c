@@ -12,21 +12,21 @@ char GeneratePWM(uint16_t Temperature){
     if(Temperature<=200){
         WRITE_PWM=DUTY_CYCLE(20.0);/* PWM of Duty cycle 20% */
         DelayMilliSecond(200);
-        return 'a';
+        return 'p';
     }
     else if(Temperature>200 && Temperature<=500){
         WRITE_PWM=DUTY_CYCLE(40.0);/* PWM of Duty cycle 40% */
         DelayMilliSecond(200);
-        return 'b';
+        return 'q';
     }
     else if(Temperature>500 && Temperature<=700){
         WRITE_PWM=DUTY_CYCLE(70.0); /*PWM of Duty cycle 70% */
         DelayMilliSecond(200);
-        return 'c';
+        return 'r';
     }
     else{
         WRITE_PWM=DUTY_CYCLE(95.0);/* PWM of Duty cycle 95% */
         DelayMilliSecond(200);
-        return 'd';
+        return 's';
     }
 }
