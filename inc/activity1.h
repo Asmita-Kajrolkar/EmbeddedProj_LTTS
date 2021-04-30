@@ -1,40 +1,83 @@
-#ifndef __ACTIVITY1_H_
-#define __ACTIVITY1_H_
+#ifndef _ACTIVITY1_H_
+#define _ACTIVITY1_H_
 /**
  * @file activity1.h
  * @author Asmita Kajrolkar ()
- * @brief Project to Blink an LED connected to AVR328 MCU GPIO Pin
+ * @brief Activity1 in the embedded projec
  * @version 0.1
- * @date 2021-04-26
+ * @date 2021-04-30
  * 
  * @copyright Copyright (c) 2021
  * 
  */
+/**
+ * Include files
+ */ 
+#define F_CPU 16000000UL 	/**< Clock Frequency of MCU is 16 MHz */
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h> 
 
 /**
  * Macro Definitions
  */
-#define LED_ON 	(0x01)			/**< LED state HIGH */
-#define LED_OFF	(0x00)			/**< LED state LOW */
 
-#define LED_ON_TIME     (1000)  /**< LED ON time in milli seconds  */
-#define LED_OFF_TIME    (500)   /**< LED OFF time in milli seconds */
+#define LED_ON 	(0x01)			
+#define LED_OFF	(0x00)			
+#define LED_PORT (PORTB)    
+#define LED_PIN  (PORTB0)  
+#define BTN_SENSOR_PORT  (PORTD) 
+#define HTR_SENSOR_PORT  (PORTD) 
+#define BTN_SENSOR_PIN  (PORTD0) 
+#define HTR_SENSOR_PIN  (PORTD1) 
+#define BTN_SENSOR_ON 	!(PIND & 1<<PD0)	
+#define HTR_SENSOR_ON	!(PIND & 1<<PD1)	
+#define SET_PORTB0_AS_OUTPUT  DDRB |= (1<<PORTB0) 
+#define SET_PD0_AND_PD1_AS_PULLUP  PORTD |= (1<<PORTD1)|(1<<PORTD0) 
+#define SET_PORTD_AS_INPUT  DDRD = 0x00 
 
 /**
- * Include files
- */ 
-#include <avr/io.h>
-
-/**
- * Function Definitions
- */
-
-/**
- * @brief Change the state of the LED Pin according to the value of state
+ * @brief Function to change status of LED
  * 
- * @param state Pin level to which the LED Pin should be set
+ * @param[in] state ON or OFF
+ * 
  */
-void change_led_state(uint8_t state);
+void ChangeLEDState(uint8_t state);
 
+/**
+ * @brief Function to set pin of ButtonSensor
+ * 
+ * 
+ */
+void SetBtnSensorPin(void);
 
-#endif /** __ACTIVITY1_H_ */
+/**
+ * @brief Function to set pin of HeaterSensor
+ * 
+ * 
+ */
+void SetHtrSensorPin(void);
+
+/**
+ * @brief Function to generate delay in micro seconds
+ * 
+ * @param[in] delay_time Delay in Micro seconds
+ * 
+ */
+void DelayMilliSecond(uint32_t delay_time);
+
+/**
+ * @brief Function to change LED status according to the user requirement in activity1
+ * 
+ * @return FLAG
+ */
+uint8_t StatusLedActuator(void);
+
+/**
+ * @brief Function to initialize peripherals of microcontroller
+ * 
+ */
+
+void InitializePeripherals(void);
+
+#endif /* _ACTIVITY1_H_ */
